@@ -4,8 +4,14 @@ WORKDIR /app
 
 SHELL ["/bin/bash", "-c"]
 
-RUN apt-get update &
+# Dockerイメージの基本的なライブラリのインストール
 
-RUN pip install --upgrade pip 
+RUN apt-get update
+
+RUN apt-get install libgl1-mesa-dev -y
+
+RUN pip install --upgrade pip
+
+# Jupyter notebookのインストール
 
 RUN pip install notebook
